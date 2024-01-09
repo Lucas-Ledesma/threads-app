@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+<div class="min-h-screen flex flex-col">
+  <header
+    class="h-12 bg-indigo-700 text-xl text-white flex justify-between items-center px-4"
+  >
+    <span>Threads</span>
+    <nav>
+      <ul class="flex gap-6">
+        <li class="cursor-pointer">home</li>
+        <li class="cursor-pointer">abaout</li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
