@@ -4,13 +4,25 @@
   >
     <span>Threads</span>
     <nav>
-      <ul class="flex gap-6">
-        <li class="cursor-pointer">home</li>
-        <li class="cursor-pointer">abaout</li>
+      <ul class="flex gap-4">
+        <li
+          class="opacity-70"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a routerLink="/" class="hover:bg-indigo-600 p-2">Home</a>
+        </li>
+        <li
+          class="opacity-70"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a routerLink="/about" class="hover:bg-indigo-600 p-2">About</a>
+        </li>
       </ul>
     </nav>
   </header>
-  <main>
+  <main class="px-4 py-4">
     <router-outlet></router-outlet>
   </main>
 </div>
