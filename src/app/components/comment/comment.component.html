@@ -10,8 +10,6 @@
       <h3 class="text-lg font-bold text-gray-900 sm:text-xl">
         Building a SaaS product as a software developer
       </h3>
-
-      <p class="mt-1 text-xs font-medium text-gray-600">By John Doe</p>
     </div>
   </div>
 
@@ -41,8 +39,8 @@
     </button>
   </div>
 
-  <section *ngIf="isReplying">
-    <div class="text-3xl">this is where you replay</div>
+  <section *ngIf="isReplying" class="my-4">
+    <app-comment-form />
   </section>
 
   <section *ngIf="isExpanded">
