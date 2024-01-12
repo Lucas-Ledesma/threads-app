@@ -17,12 +17,14 @@
           routerLinkActive="active-link"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <a routerLink="/about" class="hover:bg-indigo-600 p-2">About</a>
+          <a routerLink="/login" class="hover:bg-indigo-600 p-2">{{
+            user === null ? "Login" : "Logout"
+          }}</a>
         </li>
       </ul>
     </nav>
   </header>
-  <main class="px-4 py-4">
+  <main>
     <router-outlet></router-outlet>
   </main>
 </div>
