@@ -17,9 +17,15 @@
           routerLinkActive="active-link"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <a routerLink="/login" class="hover:bg-indigo-600 p-2">{{
-            user === null ? "Login" : "Logout"
-          }}</a>
+          <a routerLink="/login" *ngIf="!user()" class="hover:bg-indigo-600 p-2"
+            >Login</a
+          >
+          <a
+            *ngIf="user()"
+            (click)="logout()"
+            class="hover:bg-indigo-600 p-2 cursor-pointer"
+            >Logout</a
+          >
         </li>
       </ul>
     </nav>

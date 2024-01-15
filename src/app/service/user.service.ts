@@ -11,8 +11,6 @@ export class UserService {
   localStorageKey = 'threads-app';
 
   createUser(name: string) {
-    console.log(name, 'test');
-
     return this.http.post<User>(`${environment.API_URL}/users`, { name });
   }
 
@@ -23,5 +21,9 @@ export class UserService {
   getUserFromLocasStorage() {
     const user = localStorage.getItem(this.localStorageKey);
     return user ? (JSON.parse(user) as User) : null;
+  }
+
+  disconectUser() {
+    localStorage.removeItem(this.localStorageKey);
   }
 }

@@ -2,12 +2,12 @@ import { Component, inject } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ import { NgIf } from '@angular/common';
 export class LoginComponent {
   formulario: FormGroup;
 
-  constructor(private form: FormBuilder) {
+  constructor(private form: FormBuilder, private router: Router) {
     this.formulario = this.form.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
     });
@@ -45,8 +45,8 @@ export class LoginComponent {
     this.userService
       .createUser(this.formulario.get('name')?.value)
       .subscribe((user) => {
-        console.log('user created', user),
-          this.userService.saveUserToLocasStorage(user);
+        this.userService.saveUserToLocasStorage(user);
+        this.router.navigate(['/']);
       });
   }
 }
